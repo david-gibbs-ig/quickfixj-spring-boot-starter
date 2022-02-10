@@ -128,7 +128,7 @@ public class QuickFixJServerClientIntegrationTest {
 				new CxlType(PARTIAL_CANCEL),
 				new Symbol("LNUX"),
 				new Side(Side.BUY),
-				new OrderQty(1));
+				new OrderQty(1.0));
 		quickfix.fix41.OrderCancelRequest orderCancelRequestV41 = new quickfix.fix41.OrderCancelRequest(
 				new OrigClOrdID("123"),
 				new ClOrdID("321"),
@@ -165,6 +165,10 @@ public class QuickFixJServerClientIntegrationTest {
 				new ClOrdID("321"),
 				new Side(Side.BUY),
 				new TransactTime(now()));
+		quickfix.fixlatest.OrderCancelRequest orderCancelRequestVlatest = new quickfix.fixlatest.OrderCancelRequest();
+				orderCancelRequestVlatest.set(new ClOrdID("321"));
+				orderCancelRequestVlatest.set(new Side(Side.BUY));
+				orderCancelRequestVlatest.set(new TransactTime(now()));
 		return asList(
 				orderCancelRequestV40,
 				orderCancelRequestV41,
@@ -173,7 +177,8 @@ public class QuickFixJServerClientIntegrationTest {
 				orderCancelRequestV44,
 				orderCancelRequestV50,
 				orderCancelRequestV50sp1,
-				orderCancelRequestV50sp2);
+				orderCancelRequestV50sp2,
+				orderCancelRequestVlatest);
 	}
 
 	@SneakyThrows
