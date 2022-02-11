@@ -53,6 +53,11 @@
 			<artifactId>quickfixj-core</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.quickfixj</groupId>
+			<artifactId>quickfixj-messages-all</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>io.allune</groupId>
 			<artifactId>quickfixj-spring-boot-starter</artifactId>
 		</dependency>
